@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BGNR.ID | Wear & Vision</title>
     <style>
-        /* --- RESET & BASE --- */
+        /* --- RESET DASAR (DARI DESAIN AWAL) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
             background-color: #ffffff;
             color: #333;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGASI (LOGO KIRI, MENU KANAN) --- */
         nav {
             background-color: #ffffff;
             padding: 10px 5%;
-            border-bottom: 4px solid #c5a059;
+            border-bottom: 4px solid #c5a059; /* Garis Emas Khas */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -28,84 +31,188 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo-container img { height: 50px; width: auto; transition: 0.3s; }
-        nav ul { list-style: none; display: flex; gap: 25px; }
+
+        .logo-container img {
+            height: 50px; /* Ukuran proporsional sesuai logo baru */
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
         nav ul li a {
-            text-decoration: none; color: #444; font-weight: 700; font-size: 11px;
-            letter-spacing: 1.5px; text-transform: uppercase; transition: 0.3s;
-        }
-        nav ul li a:hover { color: #c5a059; }
-
-        /* --- HERO --- */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to bottom, #fff, #f4f4f4);
-        }
-        .hero h1 { font-size: 3.5rem; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 15px; }
-        .hero p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; }
-
-        /* --- SECTION TITLES --- */
-        .section-title {
-            text-align: center; margin-top: 80px; margin-bottom: 40px;
-            text-transform: uppercase; letter-spacing: 5px; font-size: 1.8rem;
-        }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #c5a059; margin: 15px auto; }
-
-        /* --- SERVICES & CARDS --- */
-        .dual-threat {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; max-width: 1100px; margin: 0 auto; padding: 0 20px;
-        }
-        .card {
-            background: #fff; border: 1px solid #eee; padding: 40px;
-            text-align: center; border-radius: 15px; transition: 0.4s;
-        }
-        .card:hover { transform: translateY(-10px); border-color: #c5a059; }
-
-        /* --- CONTACT FORM SECTION --- */
-        .contact-container {
-            max-width: 800px; margin: 40px auto 100px; padding: 40px;
-            background: #f9f9f9; border-radius: 20px; border: 1px solid #eee;
-        }
-        .contact-form { display: grid; gap: 15px; }
-        .contact-form input, .contact-form textarea, .contact-form select {
-            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;
-        }
-        .btn-submit {
-            background-color: #1a1a1a; color: white; border: none; padding: 15px;
-            border-radius: 8px; cursor: pointer; font-weight: bold; text-transform: uppercase;
+            text-decoration: none;
+            color: #444;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: 0.3s;
         }
-        .btn-submit:hover { background-color: #c5a059; }
 
-        /* --- FLOATING WHATSAPP --- */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: #25d366; color: white;
-            width: 60px; height: 60px; border-radius: 50px;
-            text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; transition: 0.3s;
+        nav ul li a:hover { color: #c5a059; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #fff, #f9f9f9);
         }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
 
-        /* --- BUTTONS --- */
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- THE DUAL THREAT (LAYOUT 2 KOLOM) --- */
+        .dual-threat {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            flex: 1;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 20px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: #c5a059;
+        }
+
+        .card-icon { font-size: 60px; margin-bottom: 25px; }
+
+        .card h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            font-size: 1.4rem;
+        }
+
+        /* --- KONTAK FORM (GAYA MINIMALIS) --- */
+        .contact-section {
+            padding: 80px 20px;
+            background-color: #fcfcfc;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #c5a059;
+        }
+
+        /* --- TOMBOL (AKSEN MERAH DARI LOGO) --- */
         .cta-mini {
-            text-decoration: none; color: #fff; background-color: #e62129;
-            padding: 12px 25px; border-radius: 5px; font-weight: bold;
-            font-size: 11px; text-transform: uppercase; display: inline-block; transition: 0.3s;
+            text-decoration: none;
+            color: #fff;
+            background-color: #e62129; /* Merah Apparel */
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 14px 30px;
+            border-radius: 50px;
+            transition: 0.3s;
+            align-self: center;
+            border: none;
+            cursor: pointer;
         }
-        .cta-mini:hover { background-color: #c51a20; }
 
-        /* --- FOOTER --- */
-        footer { background: #111; color: #777; padding: 60px 20px; text-align: center; }
-        .footer-logo { color: #c5a059; font-weight: bold; letter-spacing: 4px; font-size: 20px; display: block; margin-bottom: 20px; }
+        .cta-mini:hover {
+            background-color: #c51a20;
+            transform: scale(1.05);
+        }
+
+        /* --- WHATSAPP FLOATING --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .wa-float:hover { transform: scale(1.1); }
+
+        /* --- FOOTER (DARI DESAIN AWAL) --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            color: #c5a059;
+        }
+
+        .footer-bottom {
+            font-size: 12px;
+            color: #555;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; padding: 15px; }
-            nav ul { margin-top: 15px; gap: 10px; font-size: 10px; }
+            nav { flex-direction: column; gap: 15px; }
             .hero h1 { font-size: 2rem; }
+            .dual-threat { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -113,59 +220,66 @@
 
     <nav>
         <div class="logo-container">
-            <a href="#home"><img src="logo-bgnr.png" alt="BGNR.ID"></a>
+            <a href="index.html">
+                <img src="logo-bgnr.png" alt="BGNR.ID Logo">
+            </a>
         </div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="hero" id="home">
+    <div class="hero" id="home">
         <h1>BGNR.ID</h1>
-        <p>Premium Wear & Visual Vision Solution.</p>
-    </section>
+        <p>Elevating Wear and Vision to the next level.</p>
+    </div>
 
-    <h2 class="section-title" id="services">Layanan Kami</h2>
-    <section class="dual-threat">
+    <section class="dual-threat" id="services">
         <div class="card">
-            <div class="card-icon">👕</div>
-            <h3>The Wear</h3>
-            <p>Konveksi seragam, kaos, dan kemeja kualitas premium.</p>
-            <a href="#contact" class="cta-mini">Tanya Harga</a>
+            <div>
+                <div class="card-icon">👕</div>
+                <h3>The Wear</h3>
+                <p>"Ubah ide menjadi identitas. Konveksi terpercaya untuk seragam, jersey, hingga merchandise dengan jahitan rapi dan bahan premium."</p>
+            </div>
+            <a href="https://wa.me/628XXXXXXXXXX" class="cta-mini">Mulai Pesanan</a>
         </div>
+
         <div class="card">
-            <div class="card-icon">🎨</div>
-            <h3>The Vision</h3>
-            <p>Desain grafis, logo branding, dan konten kreatif.</p>
-            <a href="#contact" class="cta-mini">Konsultasi</a>
+            <div>
+                <div class="card-icon">🎨</div>
+                <h3>The Vision</h3>
+                <p>"Visualkan mimpimu. Layanan desain grafis profesional untuk logo, branding, hingga konten media sosial yang ikonik."</p>
+            </div>
+            <a href="https://wa.me/628XXXXXXXXXX" class="cta-mini">Konsultasi Desain</a>
         </div>
     </section>
 
-    <h2 class="section-title" id="contact">Mulai Project</h2>
-    <section class="contact-container">
-        <form class="contact-form">
-            <input type="text" placeholder="Nama Lengkap" required>
-            <input type="email" placeholder="Email Anda" required>
-            <select required>
-                <option value="">Pilih Layanan</option>
-                <option value="wear">The Wear (Konveksi)</option>
-                <option value="vision">The Vision (Desain)</option>
-            </select>
-            <textarea rows="5" placeholder="Detail keinginan Anda (Contoh: Pesan 24pcs Jersey)" required></textarea>
-            <button type="submit" class="btn-submit">Kirim Pesan via Email</button>
-        </form>
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 style="text-align: center; margin-bottom: 30px; letter-spacing: 3px;">GET IN TOUCH</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="5" placeholder="Ceritakan project Anda..." required></textarea>
+                <button type="submit" class="cta-mini" style="width: 100%;">Kirim Pesan</button>
+            </form>
+        </div>
     </section>
 
-    <a href="https://wa.me/628XXXXXXXXXX" class="whatsapp-float" target="_blank">
-        <span>💬</span>
+    <a href="https://wa.me/628XXXXXXXXXX" class="wa-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WA">
     </a>
 
     <footer>
-        <span class="footer-logo">BGNR.ID DIGITAL</span>
-        <p style="font-size: 12px;">&copy; 2026 BGNR.ID - FAMECA With Love.</p>
+        <div class="footer-content">
+            <h3>BGNR.ID DIGITAL</h3>
+            <p>Membangun masa depan digital yang lebih keren.</p>
+            <div class="footer-bottom">
+                &copy; 2026 FAMECA With LOVE.
+            </div>
+        </div>
     </footer>
 
 </body>
