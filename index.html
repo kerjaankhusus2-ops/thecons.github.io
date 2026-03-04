@@ -3,98 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thecons Digital | Portfolio</title>
+    <title>Thecons | Home</title>
     <style>
+        /* Reset Dasar */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background-color: #0f172a;
-            color: #f8fafc;
-        }
-        
-        /* Gaya Navigasi Baru */
-nav {
-    background-color: #ffffff; /* Warna putih agar bersih */
-    padding: 20px 0;
-    border-bottom: 4px solid #d4af37; /* Garis emas di bawah seperti di gambar */
-    display: flex;
-    justify-content: center; /* Menu di tengah */
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 30px; /* Jarak antar menu */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333333; /* Warna teks gelap */
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px; /* Jarak antar huruf */
-    text-transform: uppercase; /* Paksa huruf jadi KAPITAL */
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #d4af37; /* Berubah jadi emas saat disentuh */
-}
-
-/* Gaya dropdown sederhana untuk menu 'APP' */
-.dropdown {
-    cursor: pointer;
-}
-
-.dropdown::after {
-    content: ' ▾';
-    font-size: 10px;
-}
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .btn {
-            margin-top: 25px;
-            padding: 12px 30px;
-            background-color: #38bdf8;
-            color: #0f172a;
+        /* --- Navigasi Classic --- */
+        nav {
+            background-color: #ffffff;
+            padding: 30px 0;
+            border-bottom: 4px solid #c5a059;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav ul li {
+            position: relative; /* Penting untuk posisi dropdown */
+        }
+
+        nav ul li a {
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            color: #444;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-            transform: translateY(-3px);
+        nav ul li a:hover {
+            color: #c5a059;
+        }
+
+        /* --- Logika Dropdown --- */
+        .dropdown-content {
+            display: none; /* Sembunyi secara default */
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            top: 100%; /* Muncul tepat di bawah menu utama */
+            border-top: 2px solid #c5a059;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-transform: none; /* Dropdown tidak harus kapital semua */
+            letter-spacing: 1px;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #c5a059;
+        }
+
+        /* Tampilkan dropdown saat menu 'App' disentuh (hover) */
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- Konten Utama --- */
+        .container {
+            flex: 1; /* Memastikan konten mengisi ruang agar footer tetap di bawah */
+            max-width: 900px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #c5a059;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Thecons.</div>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">about</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="about.html">What's New</a></li>
+            <li><a href="#">Directors</a></li>
+            <li class="dropdown">
+                <a href="#">App ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Mobile App</a>
+                    <a href="#">Web Tool</a>
+                    <a href="#">Settings</a>
+                </div>
+            </li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="hero">
-        <h1>Thecons Digital</h1>
-        <p>Membangun masa depan digital yang lebih keren.</p>
-        <a href="#" class="btn">Mulai Sekarang</a>
+    <div class="container">
+        <h1>Welcome to Thecons</h1>
+        <p>Arahkan kursor ke menu "App" untuk melihat Dropdown.</p>
     </div>
- 
+
+    <footer>
+        <div class="footer-content">
+            <h3>THECONS DIGITAL</h3>
+            <p>Solusi digital untuk masa depan Anda.</p>
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Kerjaankhusus2-ops. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
