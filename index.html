@@ -8,7 +8,6 @@
         /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
@@ -29,7 +28,6 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-
         .logo-container a {
             text-decoration: none;
             color: #1a1a1a;
@@ -37,10 +35,8 @@
             font-size: 22px;
             letter-spacing: 2px;
         }
-
-        .nav-links { display: flex; align-items: center; gap: 25px; }
-        nav ul { list-style: none; display: flex; gap: 20px; }
-        nav ul li a {
+        .nav-links ul { list-style: none; display: flex; gap: 20px; }
+        .nav-links ul li a {
             text-decoration: none;
             color: #444;
             font-weight: 700;
@@ -48,44 +44,29 @@
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        nav ul li a:hover { color: #c5a059; }
-
-        /* --- SECTION SETTINGS --- */
-        section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
 
         /* --- HERO & VIDEO --- */
         .hero-video-container {
-            width: 100%;
-            background: #f4f4f4;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            gap: 20px;
-            padding: 40px 5%;
+            gap: 40px;
+            padding: 60px 5%;
+            background: #f9f9f9;
         }
-
+        .hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 20px; }
         .video-box {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .hero-text h1 { font-size: 3rem; color: #1a1a1a; line-height: 1.2; margin-bottom: 20px; }
-
-        /* --- SECTION TITLES --- */
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 1.8rem;
-        }
-        .section-title::after {
-            content: ''; display: block; width: 50px; height: 3px; background: #c5a059; margin: 15px auto;
-        }
-
-        /* --- CATALOG GRID --- */
+        /* --- CATALOG --- */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; letter-spacing: 5px; text-transform: uppercase; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #c5a059; margin: 15px auto; }
+        
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -94,43 +75,35 @@
         .gallery-item {
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             background: #fff;
-            transition: 0.3s;
+            text-align: center;
         }
-        .gallery-item:hover { transform: translateY(-10px); }
         .gallery-item img { width: 100%; height: auto; display: block; }
-        .item-desc { padding: 15px; text-align: center; font-weight: bold; color: #c5a059; }
+        .item-desc { padding: 20px; font-weight: bold; color: #c5a059; }
 
         /* --- MAPS --- */
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #eee;
-        }
+        .map-container { height: 450px; border-radius: 20px; overflow: hidden; margin-top: 20px; }
 
         /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: white; padding: 60px 5% 20px; text-align: center; }
+        footer { background: #1a1a1a; color: white; padding: 60px 5%; text-align: center; }
         .social-btn {
             display: inline-block;
             margin: 10px;
-            text-decoration: none;
-            color: white;
+            padding: 12px 25px;
             border: 1px solid #c5a059;
-            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
             font-size: 12px;
-            transition: 0.3s;
+            font-weight: bold;
         }
         .social-btn:hover { background: #c5a059; }
 
-        /* FLOATING WA */
         .wa-float {
             position: fixed; bottom: 30px; right: 30px;
             background: #25d366; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; z-index: 2000;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1000;
         }
 
         @media (max-width: 768px) {
@@ -141,9 +114,7 @@
 <body>
 
     <nav>
-        <div class="logo-container">
-            <a href="#">BGNR.ID</a>
-        </div>
+        <div class="logo-container"><a href="#">BGNR.ID</a></div>
         <div class="nav-links">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -155,15 +126,14 @@
 
     <div class="hero-video-container" id="home">
         <div class="hero-text">
-            <h1>BUAT JERSEY IMPIANMU DI <span style="color: #c5a059;">BGNR.ID</span></h1>
-            <p>Kualitas premium, desain custom, dan hasil produksi terbaik langsung dari Bandung.</p>
+            <h1>PREMIUM JERSEY <br><span style="color: #c5a059;">MADE IN BANDUNG</span></h1>
+            <p>Wujudkan identitas tim Anda dengan kualitas cetak dan bahan terbaik dari BEGINNER.ID.</p>
             <br>
-            <a href="https://wa.me/6283153441074" class="social-btn" style="background: #c5a059;">Order Sekarang</a>
+            <a href="https://wa.me/6283153441074" class="social-btn" style="background: #c5a059; border: none;">Hubungi Kami</a>
         </div>
         <div class="video-box">
-            <video width="100%" autoplay muted loop>
-                <source src="video_promosi.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+            <video width="100%" autoplay muted loop playsinline>
+                <source src="video-bgnr.mp4.mp4" type="video/mp4">
             </video>
         </div>
     </div>
@@ -172,41 +142,34 @@
         <h2 class="section-title">Jersey Catalog</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="jersey_kuning.jpg" alt="Jersey Kuning Kuda Pasir">
-                <div class="item-desc">Jersey Kerah "Kuda Pasir"</div>
+                <img src="kuda-pasir.jpg" alt="Jersey Kuda Pasir">
+                <div class="item-desc">Jersey "Kuda Pasir" Edition</div>
             </div>
             <div class="gallery-item">
-                <img src="jersey_pink.jpg" alt="Jersey Pink Barbeng FC">
-                <div class="item-desc">Jersey Sublimasi "Barbeng FC"</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/400x400?text=Your+Next+Design" alt="Custom Design">
-                <div class="item-desc">Desain Custom Anda</div>
+                <img src="barbeng-fc.jpg" alt="Jersey Barbeng FC">
+                <div class="item-desc">Jersey "Barbeng FC" Edition</div>
             </div>
         </div>
     </section>
 
     <section id="location">
         <h2 class="section-title">Our Workshop</h2>
-        <div style="text-align: center; margin-bottom: 20px;">
-            <p><strong>BEGINNER.ID</strong></p>
-            <p>Jatiendah, Kec. Cilengkrang, Kabupaten Bandung, Jawa Barat 40616</p>
-        </div>
+        <p style="text-align: center; margin-bottom: 20px;">Jatiendah, Kec. Cilengkrang, Kabupaten Bandung, Jawa Barat 40616</p>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.945344335541!2d107.7011111!3d-6.8971111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd1408365261%3A0x6a2c3a5e81f9a1b!2sBEGINNER.ID!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9433604921673!2d107.70287307421257!3d-6.897361767497169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd0059e99c1d%3A0xe54955b9919069d!2sBEGINNER.ID!5e0!3m2!1sid!2sid!4v1709632000000!5m2!1sid!2sid" 
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <footer>
-        <h3 style="color: #c5a059; margin-bottom: 20px;">FOLLOW US</h3>
-        <a href="https://www.instagram.com/beginner.sport.id/?hl=id" target="_blank" class="social-btn">Instagram @beginner.sport.id</a>
-        <a href="https://wa.me/6283153441074" target="_blank" class="social-btn">WhatsApp Support</a>
-        <p style="margin-top: 30px; font-size: 11px; opacity: 0.5;">© 2026 BGNR.ID - Bandung Premium Jersey.</p>
+        <h3 style="color: #c5a059; margin-bottom: 20px;">BEGINNER SPORT ID</h3>
+        <a href="https://www.instagram.com/beginner.sport.id/?hl=id" target="_blank" class="social-btn">INSTAGRAM</a>
+        <a href="https://wa.me/6283153441074" target="_blank" class="social-btn">WHATSAPP</a>
+        <p style="margin-top: 40px; font-size: 10px; opacity: 0.5;">© 2026 BGNR.ID. All Rights Reserved.</p>
     </footer>
 
     <a href="https://wa.me/6283153441074" class="wa-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30" alt="WA">
     </a>
 
 </body>
